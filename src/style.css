@@ -1,0 +1,43 @@
+h1,
+p {
+  font-family: Lato;
+}
+
+.app {
+  font-family: Lato;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: calc(50vh - 71px);
+}
+
+.counter {
+  text-align: center;
+  color: #333;
+}
+
+.panel-container {
+  display: flex;
+}
+
+.counter-unit {
+  display: inline-block;
+  padding: 32px;
+  border: 1px solid #333;
+  border-radius: 2px;
+  font-size: 64px;
+}
+
+.counter-unit:not(:first-of-type) {
+  margin-left: 8px;
+}
+
+.reset-btn {
+  padding: 4px 8px;
+  margin-top: 8px;
+  font-size: 8px;
+
+  background: none;
+  border: 1px solid #333;
+  border-radius: 2px;
+}
