@@ -14,14 +14,15 @@ export default function App() {
     e.stopPropagation();
     setActiveCounter(e.target.value);
   };
-  //   setCounter(type);activeCounter == 'keydown'
-  // };activeCounter == 'click'
 
   return (
     <div className="app">
       <Counter type="click" activeCounter={activeCounter} />
 
       <div className="radio-buttons">
+        <label key={counters[0].type} htmlFor={counters[0].type}>
+          {counters[0].type}
+        </label>
         {counters.map((counter) => (
           <>
             <input
@@ -33,18 +34,11 @@ export default function App() {
               id={counter.type}
               checked={counter.type == activeCounter}
             />
-            <label key={counter.type} htmlFor={counter.type}>
-              {counter.type}
-            </label>
           </>
         ))}
-        {/* <input type="radio" value="male" id="male"
-              onChange={handleChange} name="gender" />
-            <label for="male">Male</label>
-
-            <input type="radio" value="female" id="female"
-              onChange={handleChange} name="gender"/>
-            <label for="female">Female</label> */}
+        <label key={counters[1].type} htmlFor={counters[1].type}>
+          {counters[1].type}
+        </label>
       </div>
 
       <Counter type="keydown" activeCounter={activeCounter} />

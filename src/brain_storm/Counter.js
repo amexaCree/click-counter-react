@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useLayoutEffect, useReducer } from 'react';
+import React, { useState, useEffect, useLayoutEffect } from 'react';
 import '../style.css';
 
 export default function Counter({ type, activeCounter }) {
+  // const [clickCount, setClickCount] = useState(0);
   const [count, setCount] = useState(0);
   const [countUnits, setCountUnits] = useState([]);
 
@@ -11,13 +12,29 @@ export default function Counter({ type, activeCounter }) {
     };
 
     if (activeCounter == type) {
+      // if (type == 'click') {
+      //   window.addEventListener('click', incrementCount);
+      // }
+      // if (type == 'keydown') {
+      //   window.addEventListener('keydown', incrementCount);
+      // }
       window.addEventListener(type, incrementCount);
     }
 
-    return () => {
+    return function cleanupListener() {
+      // window.removeEventListener('click', incrementCount);
+      // window.removeEventListener('keydown', incrementCount);
+
       window.removeEventListener(type, incrementCount);
     };
   }, [activeCounter, type]);
+
+  // useEffect(() => {
+  //   const windowClickEvent = () => {
+  //     setCount(clickCount => clickCount + 1);
+  //   };
+  //   window.addEventListener('click', windowClickEvent);
+  // }, []);
 
   useLayoutEffect(() => {
     setCountUnits(getUnits(count));
@@ -30,6 +47,9 @@ export default function Counter({ type, activeCounter }) {
   const resetCounter = (e) => {
     e.stopPropagation();
     let resetTo = 0;
+    // if (type == 'click') {
+    //   resetTo = -1;
+    // }
     setCount((setCount) => resetTo);
   };
 
