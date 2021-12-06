@@ -5,6 +5,8 @@ export default function Counter({ type, activeCounter }) {
   const [count, setCount] = useState(0);
   const [countUnits, setCountUnits] = useState([]);
 
+  // TODO - useReducer to replace setCount for counter increments
+
   useEffect(() => {
     const incrementCount = () => {
       setCount((count) => count + 1);
